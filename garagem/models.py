@@ -30,14 +30,14 @@ class Acessorio(models.Model):
         return self.descricao
     
 class Veiculo(models.Model):
-    marca = models.ForeignKey(Marca, on_delete=models.CASCADE)
-    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
-    cor = models.ForeignKey(Cor, on_delete=models.CASCADE)
-    acessorios = models.ForeignKey(Acessorio, on_delete=models.CASCADE)
+    marca = models.ForeignKey(Marca, on_delete=models.PROTECT, related_name="Veículos")
+    categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT, related_name="Veículos")
+    cor = models.ForeignKey(Cor, on_delete=models.PROTECT, related_name="Veículos")
+    acessorios = models.ForeignKey(Acessorio, on_delete=models.PROTECT, related_name="Veículos")
     modelo = models.CharField(max_length=100)
-    ano = models.IntegerField()
-    preco = models.DecimalField(max_digits=10, decimal_places=2)
+    ano = models.IntegerField(null=True, blank=True, default=0)
+    preco = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True, default=0)
     descricao = models.TextField()
 
     def __str__(self):
-        return self.modelo
+        return  f"Modelo: {self.modelo} - Marca: {self.marca.nome.upper()} - Ano: {self.ano} - Cor: {self.cor}"
