@@ -21,13 +21,19 @@ class Cor(models.Model):
     def __str__(self):
         return self.descricao
     class Meta:
-        verbose_name_plural = "Cores"
+        verbose_name_plural = "cores"
+        verbose_name = "cor"
 
 class Acessorio(models.Model):
     descricao = models.CharField(max_length=100)
 
     def __str__(self):
         return self.descricao
+    
+    class Meta:
+        verbose_name_plural = "acessorios"
+        verbose_name = "acessorio"
+    
     
 class Veiculo(models.Model):
     marca = models.ForeignKey(Marca, on_delete=models.PROTECT, related_name="Veículos")
@@ -41,3 +47,7 @@ class Veiculo(models.Model):
 
     def __str__(self):
         return  f"Modelo: {self.modelo} - Marca: {self.marca.nome.upper()} - Ano: {self.ano} - Cor: {self.cor}"
+
+    class Meta:
+        verbose_name_plural = "veiculos"
+        verbose_name = "veiculo"
