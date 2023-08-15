@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt",
     "uploader",
     "usuario",
+    "drf_spectacular",
     "garagem",
 ]
 
@@ -149,6 +150,13 @@ REST_FRAMEWORK = {
     # "DEFAULT_AUTHENTICATION_CLASSES": (
     #    "rest_framework_simplejwt.authentication.JWTAuthentication",
     # ),
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 AUTH_USER_MODEL = "usuario.Usuario"
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Garagem API",
+    "DESCRIPTION": "API para gerenciamento de Garagem, incluindo endpoints e documentação.",
+    "VERSION": "1.0.0",
+}
