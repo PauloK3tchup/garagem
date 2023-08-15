@@ -17,17 +17,15 @@ class Veiculo(models.Model):
     acessorios = models.ForeignKey(
         Acessorio, on_delete=models.PROTECT, related_name="veiculos"
     )
-    imagem = models.ForeignKey(
+    imagem = models.ManyToManyField(
         Image,
         related_name="+",
-        on_delete=models.CASCADE,
-        null=True,
         blank=True,
         default=None,
     )
 
     def __str__(self):
-        return f"Modelo: {self.modelo} - Modelo: {self.modelo.nome.upper()} - Ano: {self.ano} - Cor: {self.cor}"
+        return f"Modelo: {self.modelo} - Ano: {self.ano} - Cor: {self.cor}"
 
     class Meta:
         verbose_name_plural = "veiculos"
