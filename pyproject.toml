@@ -1,5 +1,18 @@
 [tool.pdm]
 
+[tool.pdm.scripts]
+dev = "python manage.py runserver"
+runserver = "python manage.py runserver"
+createsuperuser = "python manage.py createsuperuser"
+mi = "python manage.py migrate"
+mm = "python manage.py makemigrations"
+shell = "python manage.py shell"
+test = "python manage.py test"
+startapp = "python manage.py startapp {args}"
+loaddata = "python manage.py loaddata {args}"
+dumpdata = "python manage.py dumpdata {args}"
+
+
 [project]
 name = ""
 version = ""
@@ -12,6 +25,7 @@ dependencies = [
     "djangorestframework>=3.14.0",
     "django-cors-headers>=4.0.0",
     "djangorestframework-simplejwt>=5.2.2",
+    "setuptools>=68.0.0",
 ]
 requires-python = ">=3.10"
 license = {text = "MIT"}
