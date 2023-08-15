@@ -1,6 +1,7 @@
 from django.db import models
 
 from garagem.models import Modelo, Acessorio, Cor
+from uploader.models import Image
 
 
 class Veiculo(models.Model):
@@ -16,9 +17,17 @@ class Veiculo(models.Model):
     acessorios = models.ForeignKey(
         Acessorio, on_delete=models.PROTECT, related_name="veiculos"
     )
+    imagem = models.ForeignKey(
+        Image,
+        related_name="+",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        default=None,
+    )
 
     def __str__(self):
-        return f"Modelo: {self.modelo} - Marca: {self.marca.nome.upper()} - Ano: {self.ano} - Cor: {self.cor}"
+        return f"Modelo: {self.modelo} - Modelo: {self.modelo.nome.upper()} - Ano: {self.ano} - Cor: {self.cor}"
 
     class Meta:
         verbose_name_plural = "veiculos"
