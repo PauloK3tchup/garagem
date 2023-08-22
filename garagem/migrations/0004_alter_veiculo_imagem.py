@@ -13,8 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="veiculo",
             name="imagem",
-            field=models.ManyToManyField(
-                blank=True, default=None, related_name="+", to="uploader.image"
-            ),
+            field=models.ManyToManyField(blank=True, default=None, related_name="+", to="uploader.image"),
         ),
     ]

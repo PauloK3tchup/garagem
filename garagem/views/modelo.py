@@ -3,9 +3,7 @@ from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 
 from garagem.models import Modelo
-from garagem.serializers import (
-    ModeloSerializer,
-)
+from garagem.serializers import ModeloSerializer
 
 
 class ModeloViewSet(ModelViewSet):

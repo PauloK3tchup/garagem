@@ -3,9 +3,7 @@ from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 
 from garagem.models import Acessorio
-from garagem.serializers import (
-    AcessorioSerializer,
-)
+from garagem.serializers import AcessorioSerializer
 
 
 class AcessorioViewSet(ModelViewSet):
